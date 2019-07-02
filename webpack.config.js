@@ -14,5 +14,12 @@ module.exports = {
     output: {
         path: path.join(__dirname, './dist'), // 将打包结果放到 dist 目录中
         filename: 'main.js' // 自定打包结果的文件名
-    }
+    },
+    /**
+     * mode 打包模式，如果没有指定，默认使用 production 模式打包
+     * development 开发模式打包，打包速度快，不会优化打包结果
+     * production  生产模式打包，打包速度慢，会优化打包结果
+     * 建议：开发使用 development，发布上线使用 production
+     */
+    mode: 'development'
 }
