@@ -30,11 +30,17 @@ module.exports = {
          * 然后使用 style-loader 生成一段代码：在运行期间，生成 style 节点，插入页面的 head 中
          * 注意：老外的思维的都是反的，后面的是先执行的，不要把 loader 的顺序配置错了
          */
-        {
+        { // 打包css资源
             test: /\.css$/,
             use: [
             'style-loader',
             'css-loader'
+            ]
+        },
+        { // 打包图片资源
+            test: /\.(png|svg|jpg|gif)$/,
+            use: [
+            'file-loader'
             ]
         }
         ]
