@@ -8,9 +8,15 @@
 // "build": "webpack --config webpack.config.js" 默认会根据--config webpack.config.js 来配置文件
 
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js', // 打包的入口
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './index.html'
+        })
+    ],
     output: {
         path: path.join(__dirname, './dist'), // 将打包结果放到 dist 目录中
         filename: 'main.js' // 自定打包结果的文件名
@@ -33,15 +39,18 @@ module.exports = {
         { // 打包css资源
             test: /\.css$/,
             use: [
-            'style-loader',
-            'css-loader'
+                'style-loader',
+                'css-loader'
             ]
         },
         { // 打包图片资源
             test: /\.(png|svg|jpg|gif)$/,
             use: [
-            'file-loader'
-            ]
+                {
+                    loader: 'file-loader',
+                    options: {},
+                },
+            ],
         }
         ]
     }
