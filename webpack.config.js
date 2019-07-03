@@ -57,6 +57,16 @@ module.exports = {
                     options: {},
                 },
             ],
+        },
+        {// 将es6换为es5
+            test: /\.m?js$/,
+            exclude: /(node_modules|bower_components)/, // 排除第三方包
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env'] // 转换规则
+                }
+            }
         }
         ]
     }
