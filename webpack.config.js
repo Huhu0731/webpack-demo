@@ -8,16 +8,22 @@
 // "build": "webpack --config webpack.config.js" 默认会根据--config webpack.config.js 来配置文件
 
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// 打包HTML资源
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+// 清除dist目录之前的缓存
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     entry: './src/index.js', // 打包的入口
-    plugins: [
+    plugins: [ 
+        // 打包HTML资源
         new HtmlWebpackPlugin({
             template: './index.html'
-        })
+        }),
+        // 清除dist目录之前的缓存
+        new CleanWebpackPlugin()
     ],
-    output: {
+    output: { // 打包出口
         path: path.join(__dirname, './dist'), // 将打包结果放到 dist 目录中
         filename: 'main.js' // 自定打包结果的文件名
     },
