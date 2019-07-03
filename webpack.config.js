@@ -34,6 +34,11 @@ module.exports = {
      * 建议：开发使用 development，发布上线使用 production
      */
     mode: 'development',
+    /**
+     * 配置 Source Map  源代码地图导航，方便调试
+     * inline-source-map 将源码映射内容生成到结果文件中
+     */
+    devtool: 'cheap-module-eval-source-map',
     module: {
         rules: [
         /**

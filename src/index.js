@@ -4,7 +4,7 @@ import "@babel/polyfill";
 
 foo()
 const a = 123
-console.log(a)
+// console.log(a)
 
 const arr = ['吃饭', '睡觉']
 arr.forEach(item => {
