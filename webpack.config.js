@@ -64,7 +64,8 @@ module.exports = {
             use: {
                 loader: 'babel-loader',
                 options: {
-                    presets: ['@babel/preset-env'] // 转换规则
+                    presets: ['@babel/preset-env'], // 转换规则
+                    cacheDirectory: true // 开启缓存
                 }
             }
         }
